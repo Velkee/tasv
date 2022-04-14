@@ -1,13 +1,14 @@
 {
-    "name": "card-jitsu-discord",
+    "name": "card-jitsu-rebound",
     "version": "1.0.0",
     "description": "Card-Jitsu for Discord",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
+    "main": "./dist/index.js",
     "author": "Velkee",
     "license": "GPL-3.0",
+    "scripts": {
+        "build": "tsc",
+        "start": "node ."
+    },
     "devDependencies": {
         "@tsconfig/recommended": "^1.0.1",
         "@typescript-eslint/eslint-plugin": "^5.19.0",
