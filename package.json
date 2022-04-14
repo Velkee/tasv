@@ -1,0 +1,26 @@
+{
+    "name": "card-jitsu-discord",
+    "version": "1.0.0",
+    "description": "Card-Jitsu for Discord",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Velkee",
+    "license": "GPL-3.0",
+    "devDependencies": {
+        "@tsconfig/recommended": "^1.0.1",
+        "@typescript-eslint/eslint-plugin": "^5.19.0",
+        "@typescript-eslint/parser": "^5.19.0",
+        "eslint": "^8.13.0",
+        "eslint-config-prettier": "^8.5.0",
+        "prettier": "^2.6.2",
+        "typescript": "^4.6.3"
+    },
+    "dependencies": {
+        "@discordjs/builders": "^0.12.0",
+        "@discordjs/rest": "^0.3.0",
+        "discord-api-types": "^0.31.1",
+        "discord.js": "^13.6.0"
+    }
+}
