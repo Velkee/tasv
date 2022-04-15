@@ -1,7 +1,7 @@
 {
     "name": "t.a.s.v.",
     "version": "1.0.0",
-    "description": "Card-Jitsu for Discord",
+    "description": "A small project written in TypeScript with Discord.js to check if a server is running and post an embed if the server's status changes.",
     "main": "./dist/index.js",
     "author": "Velkee",
     "license": "GPL-3.0",
