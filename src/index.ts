@@ -1,12 +1,19 @@
-import { Client, Intents, MessageEmbed, TextChannel } from 'discord.js';
-import { token, host, channelId } from './config.json';
+import { MessageEmbed, WebhookClient } from 'discord.js';
+import { host, webhookId, webhookToken } from './config.json';
 import ping from 'ping';
 
-const client = new Client({
-    intents: [Intents.FLAGS.GUILDS],
-});
+const webhookClient = new WebhookClient({ id: webhookId, token: webhookToken });
 
-const channel = client.channels.cache.get(channelId) as TextChannel;
+const testEmbed = new MessageEmbed()
+    .setTitle('T.A.S.V. Online!')
+    .setTimestamp();
+
+webhookClient.send({
+    username: 'T.A.S.V.',
+    avatarURL:
+        'https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books/blob/master/Typescript/inugami_korone_effective_typescript.png?raw=true',
+    embeds: [testEmbed],
+});
 
 const upEmbed = new MessageEmbed()
     .setTitle('T.A.S.V. Server Status')
@@ -19,10 +26,6 @@ const downEmbed = new MessageEmbed()
     .setDescription('T.A.S.V. has detected that the server is down')
     .setImage('https://pngimg.com/uploads/cat/cat_PNG50480.png')
     .setTimestamp();
-
-client.once('ready', () => {
-    console.log(`Logged in as ${client.user?.tag}!`);
-});
 
 /*
 This function checks if the host is online, and outputs to the console.
@@ -57,22 +60,30 @@ function checkOnline() {
         switch (msg) {
             case 'host ' + host + ' is alive':
                 if (online == false) {
-                    channel.send({ embeds: [upEmbed] });
+                    webhookClient.send({
+                        username: 'T.A.S.V.',
+                        avatarURL:
+                            'https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books/blob/master/Typescript/inugami_korone_effective_typescript.png?raw=true',
+                        embeds: [upEmbed],
+                    });
                     online = true;
                 }
                 break;
 
             case 'host ' + host + ' is dead':
                 if (online == true) {
-                    channel.send({ embeds: [downEmbed] });
+                    webhookClient.send({
+                        username: 'T.A.S.V.',
+                        avatarURL:
+                            'https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books/blob/master/Typescript/inugami_korone_effective_typescript.png?raw=true',
+                        embeds: [downEmbed],
+                    });
                     online = false;
                 }
                 break;
         }
     });
 }
-
-client.login(token);
 
 // Checks if the host is online every half hour (1 800 000 milliseconds)
 setInterval(checkOnline, 1800000);
