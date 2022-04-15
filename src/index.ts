@@ -39,6 +39,21 @@ function checkOnline() {
             : 'host ' + host + ' is dead';
         console.log(msg);
 
+        const random = Math.floor(Math.random() * 100);
+
+        if (15 >= random) {
+            upEmbed.setImage('https://tenor.com/bJ9ud.gif');
+            downEmbed.setImage('https://tenor.com/bJ9ud.gif');
+        } else if (36 >= random) {
+            upEmbed.setImage('https://tenor.com/bHcjE.gif');
+            downEmbed.setImage('https://tenor.com/bHcjE.gif');
+        } else {
+            upEmbed.setImage('https://pngimg.com/uploads/cat/cat_PNG50480.png');
+            downEmbed.setImage(
+                'https://pngimg.com/uploads/cat/cat_PNG50480.png'
+            );
+        }
+
         switch (msg) {
             case 'host ' + host + ' is alive':
                 if (online == false) {
@@ -59,5 +74,5 @@ function checkOnline() {
 
 client.login(token);
 
-// Checks if the host is online every 5 seconds (5000 milliseconds)
-setInterval(checkOnline, 5000);
+// Checks if the host is online every half hour (1 800 000 milliseconds)
+setInterval(checkOnline, 1800000);
