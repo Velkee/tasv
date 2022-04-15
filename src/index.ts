@@ -1,12 +1,12 @@
 import { Client, Intents, MessageEmbed, TextChannel } from 'discord.js';
-import { token, host } from './config.json';
+import { token, host, channelId } from './config.json';
 import ping from 'ping';
 
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS],
 });
 
-const channel = client.channels.cache.get('964192733977792542') as TextChannel;
+const channel = client.channels.cache.get(channelId) as TextChannel;
 
 const upEmbed = new MessageEmbed()
     .setTitle('T.A.S.V. Server Status')
