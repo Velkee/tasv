@@ -22,6 +22,7 @@ const downEmbed = new MessageEmbed()
     .setImage('https://pngimg.com/uploads/cat/cat_PNG50480.png')
     .setTimestamp();
 
+// Sends an embed verifying the bot has come online.
 webhookClient.send({
     username: 'T.A.S.V.',
     avatarURL:
@@ -44,6 +45,12 @@ function checkOnline() {
             : 'host ' + host + ' is dead';
         console.log(msg);
 
+        /*
+        This gives a 16% chance for the embed image being Ralsei smoking a blunt
+        and a 21% chance for it to be Freddy Fazbear twerking.
+
+        Comment out line 54-67 to disable.
+        */
         const random = Math.floor(Math.random() * 100);
 
         if (15 >= random) {
@@ -87,6 +94,6 @@ function checkOnline() {
     });
 }
 
-// Checks if the host is online every half hour (1 800 000 milliseconds)
+// Checks if the host is online, then checks again every half hour (1 800 000 milliseconds).
 checkOnline();
 setInterval(checkOnline, 1800000);
