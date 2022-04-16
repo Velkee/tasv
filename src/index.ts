@@ -8,13 +8,6 @@ const testEmbed = new MessageEmbed()
     .setTitle('T.A.S.V. Online!')
     .setTimestamp();
 
-webhookClient.send({
-    username: 'T.A.S.V.',
-    avatarURL:
-        'https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books/blob/master/Typescript/inugami_korone_effective_typescript.png?raw=true',
-    embeds: [testEmbed],
-});
-
 const upEmbed = new MessageEmbed()
     .setTitle('T.A.S.V. Server Status')
     .setDescription('T.A.S.V. has detected that the server is back up!')
@@ -23,9 +16,18 @@ const upEmbed = new MessageEmbed()
 
 const downEmbed = new MessageEmbed()
     .setTitle('T.A.S.V. Server Status')
-    .setDescription('T.A.S.V. has detected that the server is down')
+    .setDescription(
+        'T.A.S.V. has detected that the server is down. <@422049592864014339>'
+    )
     .setImage('https://pngimg.com/uploads/cat/cat_PNG50480.png')
     .setTimestamp();
+
+webhookClient.send({
+    username: 'T.A.S.V.',
+    avatarURL:
+        'https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books/blob/master/Typescript/inugami_korone_effective_typescript.png?raw=true',
+    embeds: [testEmbed],
+});
 
 /*
 This function checks if the host is online, and outputs to the console.
@@ -86,4 +88,5 @@ function checkOnline() {
 }
 
 // Checks if the host is online every half hour (1 800 000 milliseconds)
+checkOnline();
 setInterval(checkOnline, 1800000);
