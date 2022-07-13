@@ -1,6 +1,6 @@
 import { MessageEmbed, WebhookClient } from 'discord.js';
 import { host, webhookId, webhookToken } from './config.json';
-import ping from 'ping';
+import tcpp from 'tcp-ping';
 
 const webhookClient = new WebhookClient({ id: webhookId, token: webhookToken });
 
@@ -39,7 +39,7 @@ If the bot goes back up, an embed is sent and online is switched to true.
 let online = true;
 
 function checkOnline() {
-    ping.sys.probe(host, function (isAlive: unknown) {
+    tcpp.probe(host, 25565, function (isAlive: unknown) {
         const msg = isAlive
             ? 'host ' + host + ' is alive'
             : 'host ' + host + ' is dead';
