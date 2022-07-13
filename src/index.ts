@@ -39,8 +39,8 @@ If the bot goes back up, an embed is sent and online is switched to true.
 let online = true;
 
 function checkOnline() {
-    tcpp.probe(host, 25565, function (isAlive: unknown) {
-        const msg = isAlive
+    tcpp.probe(host, 25565, function(err, data) {
+        const msg = data
             ? 'host ' + host + ' is alive'
             : 'host ' + host + ' is dead';
         console.log(msg);
@@ -51,14 +51,15 @@ function checkOnline() {
 
         Comment out line 54-67 to disable.
         */
+
         const random = Math.floor(Math.random() * 100);
 
         if (15 >= random) {
-            upEmbed.setImage('https://tenor.com/bJ9ud.gif');
-            downEmbed.setImage('https://tenor.com/bJ9ud.gif');
+            upEmbed.setImage('https://c.tenor.com/ntX2SG7v9n8AAAAi/weed-ralsei.gif');
+            downEmbed.setImage('https://c.tenor.com/ntX2SG7v9n8AAAAi/weed-ralsei.gif');
         } else if (36 >= random) {
-            upEmbed.setImage('https://tenor.com/bHcjE.gif');
-            downEmbed.setImage('https://tenor.com/bHcjE.gif');
+            upEmbed.setImage('https://c.tenor.com/Q8u8720Oz1cAAAAC/shaking-ass-twerk.gif');
+            downEmbed.setImage('https://c.tenor.com/Q8u8720Oz1cAAAAC/shaking-ass-twerk.gif');
         } else {
             upEmbed.setImage('https://pngimg.com/uploads/cat/cat_PNG50480.png');
             downEmbed.setImage(
@@ -93,7 +94,6 @@ function checkOnline() {
         }
     });
 }
-
 // Checks if the host is online, then checks again every half hour (1 800 000 milliseconds).
 checkOnline();
 setInterval(checkOnline, 1800000);
